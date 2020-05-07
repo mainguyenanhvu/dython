@@ -275,6 +275,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#compute_associationsdataset-nominal_columnsauto-mark_columnsfalse-theil_ufalse-plottrue-clusteringfalse-bias_correctiontrue-nan_strategy_replace-nan_replace_value_default_replace_value" class="md-nav__link">
+    compute_associations(dataset, nominal_columns='auto', mark_columns=False, theil_u=False, plot=True, clustering=False, bias_correction=True, nan_strategy=_REPLACE, nan_replace_value=_DEFAULT_REPLACE_VALUE)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conditional_entropyx-y-nan_strategyreplace-nan_replace_valuedefault_replace_value-log_basemathe" class="md-nav__link">
     conditional_entropy(x, y, nan_strategy=REPLACE, nan_replace_value=DEFAULT_REPLACE_VALUE, log_base=math.e)
   </a>
@@ -458,6 +465,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#compute_associationsdataset-nominal_columnsauto-mark_columnsfalse-theil_ufalse-plottrue-clusteringfalse-bias_correctiontrue-nan_strategy_replace-nan_replace_value_default_replace_value" class="md-nav__link">
+    compute_associations(dataset, nominal_columns='auto', mark_columns=False, theil_u=False, plot=True, clustering=False, bias_correction=True, nan_strategy=_REPLACE, nan_replace_value=_DEFAULT_REPLACE_VALUE)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conditional_entropyx-y-nan_strategyreplace-nan_replace_valuedefault_replace_value-log_basemathe" class="md-nav__link">
     conditional_entropy(x, y, nan_strategy=REPLACE, nan_replace_value=DEFAULT_REPLACE_VALUE, log_base=math.e)
   </a>
@@ -519,9 +533,9 @@
                   
                 
                 
-                <h1 id="nominal">nominal</h1>
-<h4 id="associationsdataset-nominal_columnsauto-mark_columnsfalse-theil_ufalse-plottrue-clusteringfalse-bias_correctiontrue-nan_strategy_replace-nan_replace_value_default_replace_value-axnone-figsizenone-annottrue-fmt2f-cmapnone-sv_colorsilver"><code>associations(dataset, nominal_columns='auto', mark_columns=False, theil_u=False, plot=True, clustering=False, bias_correction=True, nan_strategy=_REPLACE, nan_replace_value=_DEFAULT_REPLACE_VALUE, ax=None, figsize=None, annot=True, fmt='.2f', cmap=None, sv_color='silver')</code></h4>
-<p>Calculate the correlation/strength-of-association of features in data-set with both categorical (eda_tools) and
+                <h1 id="nominal">nominal<a class="headerlink" href="#nominal" title="Permanent link">&para;</a></h1>
+<h4 id="associationsdataset-nominal_columnsauto-mark_columnsfalse-theil_ufalse-plottrue-clusteringfalse-bias_correctiontrue-nan_strategy_replace-nan_replace_value_default_replace_value-axnone-figsizenone-annottrue-fmt2f-cmapnone-sv_colorsilver"><code>associations(dataset, nominal_columns='auto', mark_columns=False, theil_u=False, plot=True, clustering=False, bias_correction=True, nan_strategy=_REPLACE, nan_replace_value=_DEFAULT_REPLACE_VALUE, ax=None, figsize=None, annot=True, fmt='.2f', cmap=None, sv_color='silver')</code><a class="headerlink" href="#associationsdataset-nominal_columnsauto-mark_columnsfalse-theil_ufalse-plottrue-clusteringfalse-bias_correctiontrue-nan_strategy_replace-nan_replace_value_default_replace_value-axnone-figsizenone-annottrue-fmt2f-cmapnone-sv_colorsilver" title="Permanent link">&para;</a></h4>
+<p>Calculate the correlation/strength-of-association of features in data-set with both categorical and
 continuous features using:
  * Pearson's R for continuous-continuous cases
  * Correlation Ratio for categorical-continuous cases
@@ -602,6 +616,11 @@ columns are categorical, 'auto' (default) to identify nominal columns automatica
 <p><em>Default = 'silver'</em></p>
 <p>A Matplotlib color. The color to be used when displaying single-value features over the heat-map</p>
 </li>
+<li>
+<p><strong><code>cbar</code></strong> : <code>Boolean</code> </p>
+<p><em>Default = True</em></p>
+<p>Display heat-map's color-bar</p>
+</li>
 </ul>
 <p><strong>Returns:</strong> A dictionary with the following keys:</p>
 <ul>
@@ -610,7 +629,7 @@ columns are categorical, 'auto' (default) to identify nominal columns automatica
 </ul>
 <p><strong>Example:</strong> See <a href="../examples/">examples</a>.</p>
 <hr />
-<h4 id="cluster_correlationscorr_mat-indexesnone"><code>cluster_correlations(corr_mat, indexes=None)</code></h4>
+<h4 id="cluster_correlationscorr_mat-indexesnone"><code>cluster_correlations(corr_mat, indexes=None)</code><a class="headerlink" href="#cluster_correlationscorr_mat-indexesnone" title="Permanent link">&para;</a></h4>
 <p>Apply agglomerative clustering in order to sort a correlation matrix.
 Based on <a href="https://github.com/TheLoneNut/CorrelationMatrixClustering/blob/master/CorrelationMatrixClustering.ipynb">this clustering example</a>.</p>
 <ul>
@@ -629,17 +648,78 @@ Based on <a href="https://github.com/TheLoneNut/CorrelationMatrixClustering/blob
 <li>cluster indexes based on the original dataset (<code>list</code>)</li>
 </ul>
 <p><strong>Example:</strong> </p>
-<pre><code class="python">&gt;&gt; assoc = associations(
-  customers,
-  plot=False
-)
-&gt;&gt; correlations = assoc['corr']
-&gt;&gt; correlations, _ = cluster_correlations(correlations)
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="n">assoc</span> <span class="o">=</span> <span class="n">associations</span><span class="p">(</span>
+  <span class="n">customers</span><span class="p">,</span>
+  <span class="n">plot</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">correlations</span> <span class="o">=</span> <span class="n">assoc</span><span class="p">[</span><span class="s1">&#39;corr&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span> <span class="n">correlations</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cluster_correlations</span><span class="p">(</span><span class="n">correlations</span><span class="p">)</span>
+</code></pre></div>
+
 
 <hr />
-<h4 id="conditional_entropyx-y-nan_strategyreplace-nan_replace_valuedefault_replace_value-log_basemathe"><code>conditional_entropy(x, y, nan_strategy=REPLACE, nan_replace_value=DEFAULT_REPLACE_VALUE, log_base=math.e)</code></h4>
-<p>Calculates the conditional entropy of x given y: <code>S(x|y)</code>. 
+<h4 id="compute_associationsdataset-nominal_columnsauto-mark_columnsfalse-theil_ufalse-plottrue-clusteringfalse-bias_correctiontrue-nan_strategy_replace-nan_replace_value_default_replace_value"><code>compute_associations(dataset, nominal_columns='auto', mark_columns=False, theil_u=False, plot=True, clustering=False, bias_correction=True, nan_strategy=_REPLACE, nan_replace_value=_DEFAULT_REPLACE_VALUE)</code><a class="headerlink" href="#compute_associationsdataset-nominal_columnsauto-mark_columnsfalse-theil_ufalse-plottrue-clusteringfalse-bias_correctiontrue-nan_strategy_replace-nan_replace_value_default_replace_value" title="Permanent link">&para;</a></h4>
+<p>Calculate the correlation/strength-of-association of features in data-set with both categorical and
+continuous features using:
+ * Pearson's R for continuous-continuous cases
+ * Correlation Ratio for categorical-continuous cases
+ * Cramer's V or Theil's U for categorical-categorical cases</p>
+<div class="admonition info">
+<p>It is equivalent to executing <code>associations(data, plot=False, ...)['corr']</code>, only
+it skips entirely on the drawing phase of the heat-map (See 
+<a href="https://github.com/shakedzy/dython/issues/49">issue #49</a>).</p>
+</div>
+<ul>
+<li>
+<p><strong><code>dataset</code></strong> : <code>NumPy ndarray / Pandas DataFrame</code></p>
+<p>The data-set for which the features' correlation is computed</p>
+</li>
+<li>
+<p><strong><code>nominal_columns</code></strong> : <code>string / list / NumPy ndarray</code></p>
+<p>Names of columns of the data-set which hold categorical values. Can also be the string 'all' to state that all
+columns are categorical, 'auto' (default) to identify nominal columns automatically, or None to state none are categorical</p>
+</li>
+<li>
+<p><strong><code>mark_columns</code></strong> : <code>Boolean</code> </p>
+<p><em>Default: False</em></p>
+<p>if True, output's columns' names will have a suffix of '(nom)' or '(con)' based on there type (eda_tools or continuous), as provided by nominal_columns</p>
+</li>
+<li>
+<p><strong><code>theil_u</code></strong> : <code>Boolean</code> </p>
+<p><em>Default: False</em></p>
+<p>In the case of categorical-categorical feaures, use Theil's U instead of Cramer's V</p>
+</li>
+<li>
+<p><strong><code>plot</code></strong> : <code>Boolean</code> </p>
+<p><em>Default: True</em></p>
+<p>Plot a heat-map of the correlation matrix</p>
+</li>
+<li>
+<p><strong><code>clustering</code></strong> : <code>Boolean</code> </p>
+<p><em>Default: False</em></p>
+<p>If True, the computed associations will be sorted into groups by similar correlations</p>
+</li>
+<li>
+<p><strong><code>bias_correction</code></strong> : <code>Boolean</code></p>
+<p><em>Default = True</em></p>
+<p>Use bias correction for Cramer's V from Bergsma and Wicher, Journal of the Korean 
+  Statistical Society 42 (2013): 323-328.</p>
+</li>
+<li>
+<p><strong><code>nan_strategy</code></strong> : <code>string</code> </p>
+<p><em>Default: 'replace'</em></p>
+<p>How to handle missing values: can be either 'drop_samples' to remove samples with missing values, 'drop_features' to remove features (columns) with missing values, or 'replace' to replace all missing values with the nan_replace_value. Missing values are None and np.nan.</p>
+</li>
+<li>
+<p><strong><code>nan_replace_value</code></strong> : <code>any</code> </p>
+<p><em>Default: 0.0</em></p>
+<p>The value used to replace missing values with. Only applicable when nan_strategy is set to 'replace'</p>
+</li>
+</ul>
+<p><strong>Returns:</strong> A DataFrame of the correlation/strength-of-association between all features</p>
+<hr />
+<h4 id="conditional_entropyx-y-nan_strategyreplace-nan_replace_valuedefault_replace_value-log_basemathe"><code>conditional_entropy(x, y, nan_strategy=REPLACE, nan_replace_value=DEFAULT_REPLACE_VALUE, log_base=math.e)</code><a class="headerlink" href="#conditional_entropyx-y-nan_strategyreplace-nan_replace_valuedefault_replace_value-log_basemathe" title="Permanent link">&para;</a></h4>
+<p>Calculates the conditional entropy of x given y: <span><span class="MathJax_Preview">S(x|y)</span><script type="math/tex">S(x|y)</script></span>. 
 Read more on <a href="https://en.wikipedia.org/wiki/Conditional_entropy">Wikipedia</a>.</p>
 <ul>
 <li>
@@ -668,8 +748,8 @@ Read more on <a href="https://en.wikipedia.org/wiki/Conditional_entropy">Wikiped
 </ul>
 <p><strong>Returns:</strong> <code>float</code></p>
 <hr />
-<h4 id="correlation_ratiocategories-measurements-nan_strategyreplace-nan_replace_valuedefault_replace_value"><code>correlation_ratio(categories, measurements, nan_strategy=REPLACE, nan_replace_value=DEFAULT_REPLACE_VALUE)</code></h4>
-<p>Calculates the Correlation Ratio (sometimes marked by the greek letter Eta) for categorical-continuous association.
+<h4 id="correlation_ratiocategories-measurements-nan_strategyreplace-nan_replace_valuedefault_replace_value"><code>correlation_ratio(categories, measurements, nan_strategy=REPLACE, nan_replace_value=DEFAULT_REPLACE_VALUE)</code><a class="headerlink" href="#correlation_ratiocategories-measurements-nan_strategyreplace-nan_replace_valuedefault_replace_value" title="Permanent link">&para;</a></h4>
+<p>Calculates the Correlation Ratio (sometimes marked by the greek letter <span><span class="MathJax_Preview">\eta</span><script type="math/tex">\eta</script></span>) for categorical-continuous association.
 Answers the question - given a continuous value of a measurement, is it possible to know which category is it
 associated with?
 Value is in the range [0,1], where 0 means a category cannot be determined by a continuous measurement, and 1 means
@@ -697,9 +777,9 @@ Read more on <a href="https://en.wikipedia.org/wiki/Correlation_ratio">Wikipedia
 </ul>
 <p><strong>Returns:</strong> float in the range of [0,1]</p>
 <hr />
-<h4 id="cramers_vx-y-bias_correctiontrue-nan_strategyreplace-nan_replace_valuedefault_replace_value"><code>cramers_v(x, y, bias_correction=True, nan_strategy=REPLACE, nan_replace_value=DEFAULT_REPLACE_VALUE)</code></h4>
+<h4 id="cramers_vx-y-bias_correctiontrue-nan_strategyreplace-nan_replace_valuedefault_replace_value"><code>cramers_v(x, y, bias_correction=True, nan_strategy=REPLACE, nan_replace_value=DEFAULT_REPLACE_VALUE)</code><a class="headerlink" href="#cramers_vx-y-bias_correctiontrue-nan_strategyreplace-nan_replace_valuedefault_replace_value" title="Permanent link">&para;</a></h4>
 <p>Calculates Cramer's V statistic for categorical-categorical association.
-This is a symmetric coefficient: <em>V(x,y) = V(y,x)</em>. Read more on <a href="https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V">Wikipedia</a>.</p>
+This is a symmetric coefficient: <span><span class="MathJax_Preview">V(x,y) = V(y,x)</span><script type="math/tex">V(x,y) = V(y,x)</script></span>. Read more on <a href="https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V">Wikipedia</a>.</p>
 <p>Original function taken from <a href="https://stackoverflow.com/a/46498792/5863503">this answer</a> on StackOverflow.</p>
 <ul>
 <li>
@@ -728,7 +808,7 @@ This is a symmetric coefficient: <em>V(x,y) = V(y,x)</em>. Read more on <a href=
 </ul>
 <p><strong>Returns:</strong> float in the range of [0,1]</p>
 <hr />
-<h4 id="identify_nominal_columnsdataset-includeobject-category"><code>identify_nominal_columns(dataset, include=['object', 'category'])</code></h4>
+<h4 id="identify_nominal_columnsdataset-includeobject-category"><code>identify_nominal_columns(dataset, include=['object', 'category'])</code><a class="headerlink" href="#identify_nominal_columnsdataset-includeobject-category" title="Permanent link">&para;</a></h4>
 <p>Given a dataset, identify categorical columns. This is used internally in <code>associations</code> and <code>numerical_encoding</code>,
 but can also be used directly.</p>
 <ul>
@@ -743,13 +823,14 @@ but can also be used directly.</p>
 </ul>
 <p><strong>Returns:</strong> list of categorical columns</p>
 <p><strong>Example:</strong></p>
-<pre><code class="python">&gt;&gt; df = pd.DataFrame({'col1': ['a', 'b', 'c', 'a'], 'col2': [3, 4, 2, 1]})
-&gt;&gt; identify_nominal_columns(df)
-['col1']
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+<span class="o">&gt;&gt;</span> <span class="n">identify_nominal_columns</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">]</span>
+</code></pre></div>
+
 
 <hr />
-<h4 id="numerical_encodingdataset-nominal_columnsauto-drop_single_labelfalse-drop_fact_dicttrue-nan_strategyreplace-nan_replace_valuedefault_replace_value"><code>numerical_encoding(dataset, nominal_columns='auto', drop_single_label=False, drop_fact_dict=True, nan_strategy=REPLACE, nan_replace_value=DEFAULT_REPLACE_VALUE)</code></h4>
+<h4 id="numerical_encodingdataset-nominal_columnsauto-drop_single_labelfalse-drop_fact_dicttrue-nan_strategyreplace-nan_replace_valuedefault_replace_value"><code>numerical_encoding(dataset, nominal_columns='auto', drop_single_label=False, drop_fact_dict=True, nan_strategy=REPLACE, nan_replace_value=DEFAULT_REPLACE_VALUE)</code><a class="headerlink" href="#numerical_encodingdataset-nominal_columnsauto-drop_single_labelfalse-drop_fact_dicttrue-nan_strategyreplace-nan_replace_valuedefault_replace_value" title="Permanent link">&para;</a></h4>
 <p>Encoding a data-set with mixed data (numerical and categorical) to a numerical-only data-set,
 using the following logic:</p>
 <ul>
@@ -800,11 +881,12 @@ else, returns a tuple of the encoded DataFrame and dictionary, where each key is
 value is the original labels, as supplied by Pandas <code>factorize</code>. Will be empty if no two-value columns are
 present in the data-set</p>
 <hr />
-<h4 id="theils_ux-y-nan_strategyreplace-nan_replace_valuedefault_replace_value"><code>theils_u(x, y, nan_strategy=REPLACE, nan_replace_value=DEFAULT_REPLACE_VALUE)</code></h4>
+<h4 id="theils_ux-y-nan_strategyreplace-nan_replace_valuedefault_replace_value"><code>theils_u(x, y, nan_strategy=REPLACE, nan_replace_value=DEFAULT_REPLACE_VALUE)</code><a class="headerlink" href="#theils_ux-y-nan_strategyreplace-nan_replace_valuedefault_replace_value" title="Permanent link">&para;</a></h4>
 <p>Calculates Theil's U statistic (Uncertainty coefficient) for categorical-categorical association.
 This is the uncertainty of x given y: value is on the range of [0,1] - where 0 means y provides no information about
 x, and 1 means y provides full information about x.
-This is an asymmetric coefficient: <em>U(x,y) != U(y,x)</em>. Read more on <a href="https://en.wikipedia.org/wiki/Uncertainty_coefficient">Wikipedia</a>.</p>
+This is an asymmetric coefficient: <span><span class="MathJax_Preview">U(x,y) \neq U(y,x)</span><script type="math/tex">U(x,y) \neq U(y,x)</script></span>. Read more on 
+<a href="https://en.wikipedia.org/wiki/Uncertainty_coefficient">Wikipedia</a>.</p>
 <ul>
 <li>
 <p><strong><code>x</code></strong> : <code>list / NumPy ndarray / Pandas Series</code></p>
@@ -906,6 +988,8 @@ This is an asymmetric coefficient: <em>U(x,y) != U(y,x)</em>. Read more on <a hr
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>

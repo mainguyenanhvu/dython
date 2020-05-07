@@ -435,8 +435,8 @@
                   
                 
                 
-                <h1 id="model_utils">model_utils</h1>
-<h4 id="roc_graphy_true-y_pred-microtrue-macrotrue-eoptimal_thresholdtrue-class_namesnone-colorsnone-axnone-figsizenone-xlim01-ylim0102-lw2-ls-ms10fmt2f"><code>roc_graph(y_true, y_pred, micro=True, macro=True, eoptimal_threshold=True, class_names=None, colors=None, ax=None, figsize=None, xlim=(0.,1.), ylim=(0.,1.02), lw=2, ls='-',ms=10,fmt='.2f')</code></h4>
+                <h1 id="model_utils">model_utils<a class="headerlink" href="#model_utils" title="Permanent link">&para;</a></h1>
+<h4 id="roc_graphy_true-y_pred-microtrue-macrotrue-eoptimal_thresholdtrue-class_namesnone-colorsnone-axnone-figsizenone-xlim01-ylim0102-lw2-ls-ms10fmt2f"><code>roc_graph(y_true, y_pred, micro=True, macro=True, eoptimal_threshold=True, class_names=None, colors=None, ax=None, figsize=None, xlim=(0.,1.), ylim=(0.,1.02), lw=2, ls='-',ms=10,fmt='.2f')</code><a class="headerlink" href="#roc_graphy_true-y_pred-microtrue-macrotrue-eoptimal_thresholdtrue-class_namesnone-colorsnone-axnone-figsizenone-xlim01-ylim0102-lw2-ls-ms10fmt2f" title="Permanent link">&para;</a></h4>
 <p>Plot a ROC graph of predictor's results (inclusding AUC scores), where each
 row of y_true and y_pred represent a single example.
 If there are 1 or two columns only, the data is treated as a binary
@@ -532,15 +532,16 @@ holding AUC and eOpT values.</p>
 Consider a data-set of two data-points where the true class of the first line 
 is class 0, which was predicted with a probability of 0.6, and the second line's 
 true class is 1, with predicted probability of 0.8. </p>
-<pre><code class="python"># First option: 
-&gt;&gt; roc_graph(y_true=[0,1], y_pred=[0.6,0.8]) 
-# Second option:
-&gt;&gt; roc_graph(y_true=[[1,0],[0,1]], y_pred=[[0.6,0.4],[0.2,0.8]])
-# Both yield the same result
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># First option: </span>
+<span class="o">&gt;&gt;</span> <span class="n">roc_graph</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y_pred</span><span class="o">=</span><span class="p">[</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span> 
+<span class="c1"># Second option:</span>
+<span class="o">&gt;&gt;</span> <span class="n">roc_graph</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y_pred</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.8</span><span class="p">]])</span>
+<span class="c1"># Both yield the same result</span>
+</code></pre></div>
+
 
 <hr />
-<h4 id="random_forest_feature_importanceforest-features-precision4"><code>random_forest_feature_importance(forest, features, precision=4)</code></h4>
+<h4 id="random_forest_feature_importanceforest-features-precision4"><code>random_forest_feature_importance(forest, features, precision=4)</code><a class="headerlink" href="#random_forest_feature_importanceforest-features-precision4" title="Permanent link">&para;</a></h4>
 <p>Given a trained <code>sklearn.ensemble.RandomForestClassifier</code>, plot the different features based on their
 importance according to the classifier, from the most important to the least.</p>
 <ul>
@@ -638,6 +639,8 @@ importance according to the classifier, from the most important to the least.</p
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>
