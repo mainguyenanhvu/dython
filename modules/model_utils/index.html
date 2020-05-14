@@ -353,15 +353,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#roc_graphy_true-y_pred-microtrue-macrotrue-eoptimal_thresholdtrue-class_namesnone-colorsnone-axnone-figsizenone-xlim01-ylim0102-lw2-ls-ms10fmt2f" class="md-nav__link">
-    roc_graph(y_true, y_pred, micro=True, macro=True, eoptimal_threshold=True, class_names=None, colors=None, ax=None, figsize=None, xlim=(0.,1.), ylim=(0.,1.02), lw=2, ls='-',ms=10,fmt='.2f')
+  <a href="#roc_graph" class="md-nav__link">
+    roc_graph
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#random_forest_feature_importanceforest-features-precision4" class="md-nav__link">
-    random_forest_feature_importance(forest, features, precision=4)
+  <a href="#random_forest_feature_importance" class="md-nav__link">
+    random_forest_feature_importance
   </a>
   
 </li>
@@ -470,15 +470,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#roc_graphy_true-y_pred-microtrue-macrotrue-eoptimal_thresholdtrue-class_namesnone-colorsnone-axnone-figsizenone-xlim01-ylim0102-lw2-ls-ms10fmt2f" class="md-nav__link">
-    roc_graph(y_true, y_pred, micro=True, macro=True, eoptimal_threshold=True, class_names=None, colors=None, ax=None, figsize=None, xlim=(0.,1.), ylim=(0.,1.02), lw=2, ls='-',ms=10,fmt='.2f')
+  <a href="#roc_graph" class="md-nav__link">
+    roc_graph
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#random_forest_feature_importanceforest-features-precision4" class="md-nav__link">
-    random_forest_feature_importance(forest, features, precision=4)
+  <a href="#random_forest_feature_importance" class="md-nav__link">
+    random_forest_feature_importance
   </a>
   
 </li>
@@ -504,7 +504,8 @@
                 
                 
                 <h1 id="model_utils">model_utils<a class="headerlink" href="#model_utils" title="Permanent link">&para;</a></h1>
-<h4 id="roc_graphy_true-y_pred-microtrue-macrotrue-eoptimal_thresholdtrue-class_namesnone-colorsnone-axnone-figsizenone-xlim01-ylim0102-lw2-ls-ms10fmt2f"><code>roc_graph(y_true, y_pred, micro=True, macro=True, eoptimal_threshold=True, class_names=None, colors=None, ax=None, figsize=None, xlim=(0.,1.), ylim=(0.,1.02), lw=2, ls='-',ms=10,fmt='.2f')</code><a class="headerlink" href="#roc_graphy_true-y_pred-microtrue-macrotrue-eoptimal_thresholdtrue-class_namesnone-colorsnone-axnone-figsizenone-xlim01-ylim0102-lw2-ls-ms10fmt2f" title="Permanent link">&para;</a></h4>
+<h4 id="roc_graph"><code>roc_graph</code><a class="headerlink" href="#roc_graph" title="Permanent link">&para;</a></h4>
+<p><code>roc_graph(y_true, y_pred, micro=True, macro=True, eoptimal_threshold=True, class_names=None, colors=None, ax=None, figsize=None, xlim=(0.,1.), ylim=(0.,1.02), lw=2, ls='-',ms=10,fmt='.2f')</code></p>
 <p>Plot a ROC graph of predictor's results (inclusding AUC scores), where each
 row of y_true and y_pred represent a single example.
 If there are 1 or two columns only, the data is treated as a binary
@@ -609,7 +610,8 @@ true class is 1, with predicted probability of 0.8. </p>
 
 
 <hr />
-<h4 id="random_forest_feature_importanceforest-features-precision4"><code>random_forest_feature_importance(forest, features, precision=4)</code><a class="headerlink" href="#random_forest_feature_importanceforest-features-precision4" title="Permanent link">&para;</a></h4>
+<h4 id="random_forest_feature_importance"><code>random_forest_feature_importance</code><a class="headerlink" href="#random_forest_feature_importance" title="Permanent link">&para;</a></h4>
+<p><code>random_forest_feature_importance(forest, features, precision=4)</code></p>
 <p>Given a trained <code>sklearn.ensemble.RandomForestClassifier</code>, plot the different features based on their
 importance according to the classifier, from the most important to the least.</p>
 <ul>
