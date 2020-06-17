@@ -729,7 +729,7 @@ Based on <a href="https://github.com/TheLoneNut/CorrelationMatrixClustering/blob
 
 <hr />
 <h4 id="compute_associations"><code>compute_associations</code><a class="headerlink" href="#compute_associations" title="Permanent link">&para;</a></h4>
-<p><code>compute_associations(dataset, nominal_columns='auto', mark_columns=False, theil_u=False, plot=True, clustering=False, bias_correction=True, nan_strategy=_REPLACE, nan_replace_value=_DEFAULT_REPLACE_VALUE)</code></p>
+<p><code>compute_associations(dataset, nominal_columns='auto', mark_columns=False, theil_u=False, clustering=False, bias_correction=True, nan_strategy=_REPLACE, nan_replace_value=_DEFAULT_REPLACE_VALUE)</code></p>
 <p>Calculate the correlation/strength-of-association of features in data-set with both categorical and
 continuous features using:
  * Pearson's R for continuous-continuous cases
@@ -759,11 +759,6 @@ columns are categorical, 'auto' (default) to identify nominal columns automatica
 <p><strong><code>theil_u</code></strong> : <code>Boolean</code> </p>
 <p><em>Default: False</em></p>
 <p>In the case of categorical-categorical feaures, use Theil's U instead of Cramer's V</p>
-</li>
-<li>
-<p><strong><code>plot</code></strong> : <code>Boolean</code> </p>
-<p><em>Default: True</em></p>
-<p>Plot a heat-map of the correlation matrix</p>
 </li>
 <li>
 <p><strong><code>clustering</code></strong> : <code>Boolean</code> </p>
