@@ -632,7 +632,13 @@ columns are categorical, 'auto' (default) to identify nominal columns automatica
 <li>
 <p><strong><code>plot</code></strong> : <code>Boolean</code> </p>
 <p><em>Default: True</em></p>
-<p>Plot a heat-map of the correlation matrix</p>
+<p>Plot a heat-map of the correlation matrix. If False, heat-map will still be
+drawn, but not shown. The heat-map's <code>ax</code> is part of this function's output. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you have no use of the plot at all, and only require the correlations
+DataFrame, consider using <a href="#compute_associations"><code>compute_associations</code></a> instead.</p>
+</div>
 </li>
 <li>
 <p><strong><code>clustering</code></strong> : <code>Boolean</code> </p>
@@ -643,7 +649,7 @@ columns are categorical, 'auto' (default) to identify nominal columns automatica
 <p><strong><code>bias_correction</code></strong> : <code>Boolean</code></p>
 <p><em>Default = True</em></p>
 <p>Use bias correction for Cramer's V from Bergsma and Wicher, Journal of the Korean 
-  Statistical Society 42 (2013): 323-328.</p>
+ Statistical Society 42 (2013): 323-328.</p>
 </li>
 <li>
 <p><strong><code>nan_strategy</code></strong> : <code>string</code> </p>
