@@ -383,8 +383,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#identify_columns_by_type" class="md-nav__link">
+    identify_columns_by_type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identify_columns_with_na" class="md-nav__link">
+    identify_columns_with_na
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identify_nominal_columns" class="md-nav__link">
     identify_nominal_columns
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identify_numeric_columns" class="md-nav__link">
+    identify_numeric_columns
   </a>
   
 </li>
@@ -561,8 +582,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#identify_columns_by_type" class="md-nav__link">
+    identify_columns_by_type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identify_columns_with_na" class="md-nav__link">
+    identify_columns_with_na
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identify_nominal_columns" class="md-nav__link">
     identify_nominal_columns
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identify_numeric_columns" class="md-nav__link">
+    identify_numeric_columns
   </a>
   
 </li>
@@ -896,25 +938,81 @@ This is a symmetric coefficient: <span><span class="MathJax_Preview">V(x,y) = V(
 </ul>
 <p><strong>Returns:</strong> float in the range of [0,1]</p>
 <hr />
-<h4 id="identify_nominal_columns"><code>identify_nominal_columns</code><a class="headerlink" href="#identify_nominal_columns" title="Permanent link">&para;</a></h4>
-<p><code>identify_nominal_columns(dataset, include=['object', 'category'])</code></p>
-<p>Given a dataset, identify categorical columns. This is used internally in <code>associations</code> and <code>numerical_encoding</code>,
-but can also be used directly.</p>
+<h4 id="identify_columns_by_type"><code>identify_columns_by_type</code><a class="headerlink" href="#identify_columns_by_type" title="Permanent link">&para;</a></h4>
+<p><code>identify_columns_by_type(dataset, include)</code></p>
+<p>Given a dataset, identify columns of the types requested.</p>
 <ul>
 <li>
-<p><strong><code>dataset</code></strong> : <code>pd.DataFrame</code></p>
+<p><strong><code>dataset</code></strong> : <code>np.ndarray</code> / <code>pd.DataFrame</code></p>
 </li>
 <li>
 <p><strong><code>include</code></strong> : <code>list</code></p>
-<p><em>Default: <code>['object', 'category']</code></em></p>
 <p>which column types to filter by.</p>
 </li>
+</ul>
+<p><strong>Returns:</strong> list of categorical columns</p>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;col3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]})</span>
+<span class="o">&gt;&gt;</span> <span class="n">identify_columns_by_type</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s1">&#39;float64&#39;</span><span class="p">])</span>
+<span class="p">[</span><span class="s1">&#39;col2&#39;</span><span class="p">,</span> <span class="s1">&#39;col3&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+
+<hr />
+<h4 id="identify_columns_with_na"><code>identify_columns_with_na</code><a class="headerlink" href="#identify_columns_with_na" title="Permanent link">&para;</a></h4>
+<p><code>identify_columns_with_na(dataset)</code></p>
+<p>Given a dataset, return columns names having NA values, 
+sorted in descending order by their number of NAs. </p>
+<ul>
+<li><strong><code>dataset</code></strong> : <code>np.ndarray</code> / <code>pd.DataFrame</code></li>
+</ul>
+<p><strong>Returns:</strong> A <code>pd.DataFrame</code> of two columns (<code>['column', 'na_count']</code>), consisting of only 
+the names of columns with NA values, sorted by their number of NA values.</p>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="s1">&#39;col3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]})</span>
+<span class="o">&gt;&gt;</span> <span class="n">identify_columns_with_na</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+  <span class="n">column</span>  <span class="n">na_count</span>
+<span class="mi">1</span>   <span class="n">col2</span>         <span class="mi">2</span>
+<span class="mi">0</span>   <span class="n">col1</span>         <span class="mi">1</span>
+</code></pre></div>
+
+
+<hr />
+<h4 id="identify_nominal_columns"><code>identify_nominal_columns</code><a class="headerlink" href="#identify_nominal_columns" title="Permanent link">&para;</a></h4>
+<p><code>identify_nominal_columns(dataset)</code></p>
+<p>Given a dataset, identify categorical columns. This is used internally in <code>associations</code> and <code>numerical_encoding</code>,
+but can also be used directly.</p>
+<div class="admonition info">
+<p class="admonition-title">Note:</p>
+<p>This is a shortcut for <code>identify_columns_by_type(dataset, include=['object', 'category'])</code> </p>
+</div>
+<ul>
+<li><strong><code>dataset</code></strong> : <code>np.ndarray</code> / <code>pd.DataFrame</code></li>
 </ul>
 <p><strong>Returns:</strong> list of categorical columns</p>
 <p><strong>Example:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
 <span class="o">&gt;&gt;</span> <span class="n">identify_nominal_columns</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+
+<hr />
+<h4 id="identify_numeric_columns"><code>identify_numeric_columns</code><a class="headerlink" href="#identify_numeric_columns" title="Permanent link">&para;</a></h4>
+<p><code>identify_numeric_columns(dataset)</code></p>
+<p>Given a dataset, identify numeric columns. </p>
+<div class="admonition info">
+<p class="admonition-title">Note:</p>
+<p>This is a shortcut for <code>identify_columns_by_type(dataset, include=['int64', 'float64'])</code> </p>
+</div>
+<ul>
+<li><strong><code>dataset</code></strong> : <code>np.ndarray</code> / <code>pd.DataFrame</code></li>
+</ul>
+<p><strong>Returns:</strong> list of numerical columns</p>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;col3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]})</span>
+<span class="o">&gt;&gt;</span> <span class="n">identify_numeric_columns</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;col2&#39;</span><span class="p">,</span> <span class="s1">&#39;col3&#39;</span><span class="p">]</span>
 </code></pre></div>
 
 
