@@ -319,6 +319,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#split_hist_example" class="md-nav__link">
+    split_hist_example()
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -355,6 +362,18 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/data_utils/" title="data_utils" class="md-nav__link">
+      data_utils
+    </a>
+  </li>
+
         
           
           
@@ -497,6 +516,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#split_hist_example" class="md-nav__link">
+    split_hist_example()
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -610,6 +636,28 @@ All features of this dataset are categorical. This example will use Theil's U.</
 <p>Due to the nature of <code>np.random.RandomState</code> which is used in this 
 example, the output graph may vary from one machine to another.</p>
 </div>
+<hr />
+<h4 id="split_hist_example"><code>split_hist_example()</code><a class="headerlink" href="#split_hist_example" title="Permanent link">&para;</a></h4>
+<p>Plot an example of split histogram of data from the breast-cancer dataset.</p>
+<p>While this example presents a numerical column split by a categorical one, categorical columns can also be used
+as the values, as well as numerical columns as the split criteria.</p>
+<p><strong>Example code:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">dython.data_utils</span> <span class="kn">import</span> <span class="n">split_hist</span>
+
+<span class="c1"># Load data and convert to DataFrame</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_breast_cancer</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;malignant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span><span class="p">]</span>
+
+<span class="c1"># Plot histogram</span>
+<span class="n">split_hist</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;mean radius&#39;</span><span class="p">,</span> <span class="s1">&#39;malignant&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+</code></pre></div>
+
+
+<p><strong>Output:</strong></p>
+<p><img alt="split_hist_example" src="../../images/split_hist_example.png" /></p>
                 
                   
                 
@@ -645,13 +693,13 @@ example, the output graph may vary from one machine to another.</p>
           </a>
         
         
-          <a href="../../modules/nominal/" title="nominal" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../modules/data_utils/" title="data_utils" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                nominal
+                data_utils
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

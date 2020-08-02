@@ -11,7 +11,7 @@
         <meta name="description" content="A set of data-analysis tools for Python 3.x">
       
       
-        <link rel="canonical" href="http://shakedzy.xyz/dython/modules/sampling/">
+        <link rel="canonical" href="http://shakedzy.xyz/dython/modules/data_utils/">
       
       
         <meta name="author" content="Shaked Zychlinski">
@@ -21,7 +21,7 @@
     
     
       
-        <title>sampling</title>
+        <title>data_utils</title>
       
     
     
@@ -60,9 +60,9 @@
   
   
   <meta property="og:type" content="documentation">
-  <meta property="og:title" content="dython:sampling">
+  <meta property="og:title" content="dython:data_utils">
   <meta property="og:description" content="A set of data-analysis tools for Python 3.x">
-  <meta property="og:url" content="http://shakedzy.xyz/dython/modules/sampling/">
+  <meta property="og:url" content="http://shakedzy.xyz/dython/modules/data_utils/">
   <meta property="og:image" content="http://shakedzy.xyz/dython/images/social_banner.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
@@ -70,7 +70,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="http://shakedzy.xyz/dython/">
   <meta name="twitter:creator" content="@shakezy">
-  <meta name="twitter:title" content="dython:sampling">
+  <meta name="twitter:title" content="dython:data_utils">
   <meta name="twitter:description" content="A set of data-analysis tools for Python 3.x">
   <meta name="twitter:image" content="http://shakedzy.xyz/dython/images/social_banner.png">
 
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sampling" class="md-skip">
+        <a href="#data_utils" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              sampling
+              data_utils
             
           </span>
         </div>
@@ -304,11 +304,67 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../data_utils/" title="data_utils" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        data_utils
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="data_utils" class="md-nav__link md-nav__link--active">
       data_utils
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#identify_columns_with_na" class="md-nav__link">
+    identify_columns_with_na
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identify_columns_by_type" class="md-nav__link">
+    identify_columns_by_type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#split_hist" class="md-nav__link">
+    split_hist
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -340,60 +396,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        sampling
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="sampling" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../sampling/" title="sampling" class="md-nav__link">
       sampling
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#boltzmann_sampling" class="md-nav__link">
-    boltzmann_sampling
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#weighted_sampling" class="md-nav__link">
-    weighted_sampling
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -482,15 +489,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#boltzmann_sampling" class="md-nav__link">
-    boltzmann_sampling
+  <a href="#identify_columns_with_na" class="md-nav__link">
+    identify_columns_with_na
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#weighted_sampling" class="md-nav__link">
-    weighted_sampling
+  <a href="#identify_columns_by_type" class="md-nav__link">
+    identify_columns_by_type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#split_hist" class="md-nav__link">
+    split_hist
   </a>
   
 </li>
@@ -507,7 +521,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/shakedzy/dython/edit/master/docs/modules/sampling.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/shakedzy/dython/edit/master/docs/modules/data_utils.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
                   </a>
                 
@@ -515,47 +529,93 @@
                   
                 
                 
-                <h1 id="sampling">sampling<a class="headerlink" href="#sampling" title="Permanent link">&para;</a></h1>
-<h4 id="boltzmann_sampling"><code>boltzmann_sampling</code><a class="headerlink" href="#boltzmann_sampling" title="Permanent link">&para;</a></h4>
-<p><code>boltzmann_sampling(numbers, k=1, with_replacement=False)</code></p>
-<p>Return k numbers from a boltzmann-sampling over the supplied numbers</p>
+                <h1 id="data_utils">data_utils<a class="headerlink" href="#data_utils" title="Permanent link">&para;</a></h1>
+<h4 id="identify_columns_with_na"><code>identify_columns_with_na</code><a class="headerlink" href="#identify_columns_with_na" title="Permanent link">&para;</a></h4>
+<p><code>identify_columns_with_na(dataset)</code></p>
+<p>Given a dataset, return columns names having NA values, 
+sorted in descending order by their number of NAs. </p>
 <ul>
-<li>
-<p><strong><code>numbers</code></strong> : <code>List or np.ndarray</code></p>
-<p>numbers to sample</p>
-</li>
-<li>
-<p><strong><code>k</code></strong> : <code>int</code></p>
-<p><em>Default: 1</em></p>
-<p>How many numbers to sample. Choosing <code>k=None</code> will yield a single number</p>
-</li>
-<li>
-<p><strong><code>with_replacement</code></strong> : <code>Boolean</code> <code>Default: False</code></p>
-<p>Allow replacement or not</p>
-</li>
+<li><strong><code>dataset</code></strong> : <code>np.ndarray</code> / <code>pd.DataFrame</code></li>
 </ul>
-<p><strong>Returns:</strong> <code>list</code>, <code>np.ndarray</code> or a single number (depending on the input)</p>
+<p><strong>Returns:</strong> A <code>pd.DataFrame</code> of two columns (<code>['column', 'na_count']</code>), consisting of only 
+the names of columns with NA values, sorted by their number of NA values.</p>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="s1">&#39;col3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]})</span>
+<span class="o">&gt;&gt;</span> <span class="n">identify_columns_with_na</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+  <span class="n">column</span>  <span class="n">na_count</span>
+<span class="mi">1</span>   <span class="n">col2</span>         <span class="mi">2</span>
+<span class="mi">0</span>   <span class="n">col1</span>         <span class="mi">1</span>
+</code></pre></div>
+
+
 <hr />
-<h4 id="weighted_sampling"><code>weighted_sampling</code><a class="headerlink" href="#weighted_sampling" title="Permanent link">&para;</a></h4>
-<p><code>weighted_sampling(numbers, k=1, with_replacement=False)</code></p>
-<p>Return k numbers from a weighted-sampling over the supplied numbers</p>
+<h4 id="identify_columns_by_type"><code>identify_columns_by_type</code><a class="headerlink" href="#identify_columns_by_type" title="Permanent link">&para;</a></h4>
+<p><code>identify_columns_by_type(dataset, include)</code></p>
+<p>Given a dataset, identify columns of the types requested.</p>
 <ul>
 <li>
-<p><strong><code>numbers</code></strong> : <code>List or np.ndarray</code></p>
-<p>numbers to sample</p>
+<p><strong><code>dataset</code></strong> : <code>np.ndarray</code> / <code>pd.DataFrame</code></p>
 </li>
 <li>
-<p><strong><code>k</code></strong> : <code>int</code></p>
-<p><em>Default: 1</em></p>
-<p>How many numbers to sample. Choosing <code>k=None</code> will yield a single number</p>
-</li>
-<li>
-<p><strong><code>with_replacement</code></strong> : <code>Boolean</code> </p>
-<p><em>Default: False</em></p>
-<p>Allow replacement or not</p>
+<p><strong><code>include</code></strong> : <code>list</code></p>
+<p>which column types to filter by.</p>
 </li>
 </ul>
-<p><strong>Returns:</strong> <code>list</code>, <code>np.ndarray</code> or a single number (depending on the input)</p>
+<p><strong>Returns:</strong> list of categorical columns</p>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;col3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]})</span>
+<span class="o">&gt;&gt;</span> <span class="n">identify_columns_by_type</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s1">&#39;float64&#39;</span><span class="p">])</span>
+<span class="p">[</span><span class="s1">&#39;col2&#39;</span><span class="p">,</span> <span class="s1">&#39;col3&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+
+<hr />
+<h4 id="split_hist"><code>split_hist</code><a class="headerlink" href="#split_hist" title="Permanent link">&para;</a></h4>
+<p><code>split_hist(dataset, values, split_by, title='', xlabel='', ylabel=None, figsize=None, legend='best', plot=True, **hist_kwargs)</code></p>
+<p>Plot a histogram of values from a given dataset, split by the values of a chosen column</p>
+<ul>
+<li>
+<p><strong><code>dataset</code></strong> : <code>pd.DataFrame</code></p>
+</li>
+<li>
+<p><strong><code>values</code></strong> : <code>string</code></p>
+<p>The column name of the values to be displayed in the histogram</p>
+</li>
+<li>
+<p><strong><code>split_by</code></strong> : <code>string</code></p>
+<p>The column name of the values to split the histogram by</p>
+</li>
+<li>
+<p><strong><code>title</code></strong> : <code>string</code> or <code>None</code>, default = ''</p>
+<p>The plot's title. If empty string, will be '{values} by {split_by}'</p>
+</li>
+<li>
+<p><strong><code>xlabel</code></strong>: <code>string</code> or <code>None</code>, default = ''</p>
+<p>x-axis label. If empty string, will be '{values}'</p>
+</li>
+<li>
+<p><strong><code>ylabel</code></strong>: <code>string</code> or <code>None</code>, default: <code>None</code></p>
+<p>y-axis label</p>
+</li>
+<li>
+<p><strong><code>figsize</code></strong>: (<code>int</code>,<code>int</code>) or <code>None</code>, default = <code>None</code></p>
+<p>A Matplotlib figure-size tuple. If <code>None</code>, falls back to Matplotlib's default.</p>
+</li>
+<li>
+<p><strong><code>legend</code></strong>: <code>string</code> or <code>None</code>, default = 'best'</p>
+<p>A Matplotlib legend location string. See Matplotlib documentation for possible options</p>
+</li>
+<li>
+<p><strong><code>plot</code></strong>: <code>Boolean</code>, default = True</p>
+<p>Plot the histogram</p>
+</li>
+<li>
+<p><strong><code>hist_kwargs</code></strong>: key-value pairs</p>
+<p>A key-value pairs to be passed to Matplotlib hist method. See Matplotlib documentation for possible options</p>
+</li>
+</ul>
+<p><strong>Returns:</strong> A Matplotlib <code>Axe</code></p>
+<p><strong>Example:</strong> See <a href="../../getting_started/examples/">examples</a>.</p>
                 
                   
                 
@@ -576,7 +636,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../model_utils/" title="model_utils" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../getting_started/examples/" title="Examples" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -585,11 +645,25 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                model_utils
+                Examples
               </div>
             </div>
           </a>
         
+        
+          <a href="../nominal/" title="nominal" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                nominal
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+            </div>
+          </a>
         
       </nav>
     </div>
