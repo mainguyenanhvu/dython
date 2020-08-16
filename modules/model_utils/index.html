@@ -519,21 +519,20 @@
 <h4 id="roc_graph"><code>roc_graph</code><a class="headerlink" href="#roc_graph" title="Permanent link">&para;</a></h4>
 <p><code>roc_graph(y_true, y_pred, micro=True, macro=True, eoptimal_threshold=True, class_names=None, colors=None, ax=None, figsize=None, xlim=(0.,1.), ylim=(0.,1.02), lw=2, ls='-',ms=10,fmt='.2f')</code></p>
 <p>Plot a ROC graph of predictor's results (inclusding AUC scores), where each
-row of y_true and y_pred represent a single example.
-If there are 1 or two columns only, the data is treated as a binary
-classification (see input example below). 
-If there are more then 2 columns, each column is considered a 
-unique class, and a ROC graph and AUC score will be computed for each. 
-A Macro-ROC and Micro-ROC are computed and plotted too by default.</p>
+row of y_true and y_pred represent a single example.</p>
 <p>Based on <a href="http://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html">scikit-learn examples</a> (as was seen on April 2018):</p>
 <ul>
 <li>
 <p><strong><code>y_true</code></strong> : <code>list / NumPy ndarray</code></p>
-<p>The true classes of the predicted data</p>
+<p>The true classes of the predicted data.
+If only one or two columns exist, the data is treated as a binary
+classification (see input example below). 
+If there are more than 2 columns, each column is considered a 
+unique class, and a ROC graph and AUC score will be computed for each. </p>
 </li>
 <li>
 <p><strong><code>y_pred</code></strong> : <code>list / NumPy ndarray</code></p>
-<p>The predicted classes</p>
+<p>The predicted classes. Must have the same shape as <code>y_true</code>.</p>
 </li>
 <li>
 <p><strong><code>micro</code></strong> : <code>Boolean</code> </p>
@@ -546,7 +545,7 @@ A Macro-ROC and Micro-ROC are computed and plotted too by default.</p>
 <p>Whether to calculate a Macro ROC graph (not applicable for binary cases)</p>
 </li>
 <li>
-<p><strong><code>eoptimal_threshold</code></strong> : <code>Boolean</code></p>
+<p><strong><code>eopt</code></strong> : <code>Boolean</code></p>
 <p><em>Default = True</em></p>
 <p>Whether to calculate and display the estimated-optimal threshold for each ROC graph. The estimated-optimal threshold is the closest computed threshold with (fpr,tpr) values closest to (0,1) </p>
 </li>
@@ -604,6 +603,14 @@ default. Only used if <code>ax=None</code>.</p>
 <p><strong><code>fmt</code></strong> : <code>string</code></p>
 <p><em>Default = '.2f'</em></p>
 <p>String formatting of displayed AUC and threshold numbers.</p>
+</li>
+<li>
+<p><strong><code>legend</code></strong>: <code>string</code> or <code>None</code>, default = 'best'</p>
+<p>A Matplotlib legend location string. See Matplotlib documentation for possible options</p>
+</li>
+<li>
+<p><strong><code>plot</code></strong>: <code>Boolean</code>, default = True</p>
+<p>Plot the histogram</p>
 </li>
 </ul>
 <p><strong>Returns:</strong> A dictionary, one key for each class. Each value is another dictionary,
