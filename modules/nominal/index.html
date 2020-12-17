@@ -722,6 +722,18 @@ DataFrame, consider using <a href="#compute_associations"><code>compute_associat
 <p><em>Default = True</em></p>
 <p>Display heat-map's color-bar</p>
 </li>
+<li>
+<p><strong><code>vmax</code></strong> : <code>float</code></p>
+<p><em>Default = 1.0</em></p>
+<p>Set heat-map <code>vmax</code> option</p>
+</li>
+<li>
+<p><strong><code>vmin</code></strong> : <code>float</code> or <code>None</code></p>
+<p><em>Default = None</em></p>
+<p>Set heat-map <code>vmin</code> option. If set to <code>None</code>, <code>vmin</code> will be chosen automatically 
+between 0 and -1.0, depending on the types of associations used (-1.0 if Pearson's R 
+is used, 0 otherwise)   </p>
+</li>
 </ul>
 <p><strong>Returns:</strong> A dictionary with the following keys:</p>
 <ul>
