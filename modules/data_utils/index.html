@@ -355,6 +355,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#one_hot_encode" class="md-nav__link">
+    one_hot_encode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#split_hist" class="md-nav__link">
     split_hist
   </a>
@@ -503,6 +510,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#one_hot_encode" class="md-nav__link">
+    one_hot_encode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#split_hist" class="md-nav__link">
     split_hist
   </a>
@@ -566,6 +580,29 @@ the names of columns with NA values, sorted by their number of NA values.</p>
 <div class="codehilite"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;col3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]})</span>
 <span class="o">&gt;&gt;</span> <span class="n">identify_columns_by_type</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s1">&#39;float64&#39;</span><span class="p">])</span>
 <span class="p">[</span><span class="s1">&#39;col2&#39;</span><span class="p">,</span> <span class="s1">&#39;col3&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+
+<hr />
+<h4 id="one_hot_encode"><code>one_hot_encode</code><a class="headerlink" href="#one_hot_encode" title="Permanent link">&para;</a></h4>
+<p><code>one_hot_encode(arr, classes=None)</code></p>
+<p>One-hot encode a 1D array. Based on this <a href="https://stackoverflow.com/a/29831596/5863503">StackOverflow answer</a>.</p>
+<ul>
+<li>
+<p><strong><code>arr</code></strong> : array-like</p>
+<p>An array to be one-hot encoded. Must contain only non-negative integers</p>
+</li>
+<li>
+<p><strong><code>classes</code></strong> : <code>int</code> or <code>None</code></p>
+<p>number of classes. if None, max value of the array will be used</p>
+</li>
+</ul>
+<p><strong>Returns:</strong> 2D one-hot encoded array</p>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="o">&gt;&gt;</span> <span class="n">one_hot_encode</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="p">[[</span><span class="mf">0.</span> <span class="mf">1.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">1.</span><span class="p">]]</span>
 </code></pre></div>
 
 

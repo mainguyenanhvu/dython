@@ -517,7 +517,7 @@
                 
                 <h1 id="model_utils">model_utils<a class="headerlink" href="#model_utils" title="Permanent link">&para;</a></h1>
 <h4 id="roc_graph"><code>roc_graph</code><a class="headerlink" href="#roc_graph" title="Permanent link">&para;</a></h4>
-<p><code>roc_graph(y_true, y_pred, micro=True, macro=True, eoptimal_threshold=True, class_names=None, colors=None, ax=None, figsize=None, xlim=(0.,1.), ylim=(0.,1.02), lw=2, ls='-',ms=10,fmt='.2f')</code></p>
+<p><code>roc_graph(y_true, y_pred, micro=True, macro=True, eoptimal_threshold=True, class_names=None, colors=None, ax=None, figsize=None, xlim=(0.,1.), ylim=(0.,1.02), lw=2, ls='-', ms=10, fmt='.2f', title=None, filename=None)</code></p>
 <p>Plot a ROC graph of predictor's results (inclusding AUC scores), where each
 row of y_true and y_pred represent a single example.</p>
 <p>Based on <a href="http://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html">scikit-learn examples</a> (as was seen on April 2018):</p>
@@ -611,6 +611,16 @@ default. Only used if <code>ax=None</code>.</p>
 <li>
 <p><strong><code>plot</code></strong>: <code>Boolean</code>, default = True</p>
 <p>Plot the histogram</p>
+</li>
+<li>
+<p><strong><code>title</code></strong>: <code>string</code> or <code>None</code></p>
+<p><em>Default = None</em></p>
+<p>Plotted graph title. If None, default title is used.</p>
+</li>
+<li>
+<p><strong><code>filename</code></strong>: <code>string</code> or <code>None</code></p>
+<p><em>Default = None</em></p>
+<p>If not None, plot will be saved to the given file name.</p>
 </li>
 </ul>
 <p><strong>Returns:</strong> A dictionary, one key for each class. Each value is another dictionary,
