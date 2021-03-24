@@ -576,8 +576,9 @@ heat-map. And all this is done with a single line:</p>
 <p><img alt="associations_iris_example" src="images/associations_iris_example.png" /></p>
 <p>Here's another thing - given a machine-learning multi-class model's predictions, you can easily display
 each class' ROC curve, AUC score and find the estimated-optimal thresholds - again, with a single line of code:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dython.model_utils</span> <span class="kn">import</span> <span class="n">roc_graph</span>
-<span class="n">roc_graph</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">dython.model_utils</span> <span class="kn">import</span> <span class="n">metric_graph</span>
+
+<span class="n">metric_graph</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;roc&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 

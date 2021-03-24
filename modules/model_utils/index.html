@@ -365,6 +365,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#metric_graph" class="md-nav__link">
+    metric_graph
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#roc_graph" class="md-nav__link">
     roc_graph
   </a>
@@ -482,6 +489,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#metric_graph" class="md-nav__link">
+    metric_graph
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#roc_graph" class="md-nav__link">
     roc_graph
   </a>
@@ -516,9 +530,9 @@
                 
                 
                 <h1 id="model_utils">model_utils<a class="headerlink" href="#model_utils" title="Permanent link">&para;</a></h1>
-<h4 id="roc_graph"><code>roc_graph</code><a class="headerlink" href="#roc_graph" title="Permanent link">&para;</a></h4>
-<p><code>roc_graph(y_true, y_pred, micro=True, macro=True, eoptimal_threshold=True, class_names=None, colors=None, ax=None, figsize=None, xlim=(0.,1.), ylim=(0.,1.02), lw=2, ls='-', ms=10, fmt='.2f', title=None, filename=None)</code></p>
-<p>Plot a ROC graph of predictor's results (inclusding AUC scores), where each
+<h4 id="metric_graph"><code>metric_graph</code><a class="headerlink" href="#metric_graph" title="Permanent link">&para;</a></h4>
+<p><code>metric_graph(y_true, y_pred, metric, micro=True, macro=True, eoptimal_threshold=True, class_names=None, colors=None, ax=None, figsize=None, xlim=(0.,1.), ylim=(0.,1.02), lw=2, ls='-', ms=10, fmt='.2f', title=None, filename=None, force_multiclass=False)</code></p>
+<p>Plot a metric graph of predictor's results (including AUC scores), where each
 row of y_true and y_pred represent a single example.</p>
 <p>Based on <a href="http://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html">scikit-learn examples</a> (as was seen on April 2018):</p>
 <ul>
@@ -535,19 +549,27 @@ unique class, and a ROC graph and AUC score will be computed for each. </p>
 <p>The predicted classes. Must have the same shape as <code>y_true</code>.</p>
 </li>
 <li>
-<p><strong><code>micro</code></strong> : <code>Boolean</code> </p>
-<p><em>Default = True</em></p>
-<p>Whether to calculate a Micro ROC graph (not applicable for binary cases)</p>
+<p><strong><code>metric</code></strong> : <code>string</code></p>
+<p>The metric graph to plot. Currently supported: 'roc' for Receiver Operating Characteristic curve and
+'pr' for Precision-Recall curve</p>
 </li>
 <li>
-<p><strong><code>macro</code></strong> : <code>Boolean</code> </p>
+<p><strong><code>micro</code></strong> : <code>Boolean</code></p>
 <p><em>Default = True</em></p>
-<p>Whether to calculate a Macro ROC graph (not applicable for binary cases)</p>
+<p>Whether to calculate a Micro graph (not applicable for binary cases)</p>
 </li>
 <li>
-<p><strong><code>eopt</code></strong> : <code>Boolean</code></p>
+<p><strong><code>macro</code></strong> : <code>Boolean</code></p>
 <p><em>Default = True</em></p>
-<p>Whether to calculate and display the estimated-optimal threshold for each ROC graph. The estimated-optimal threshold is the closest computed threshold with (fpr,tpr) values closest to (0,1) </p>
+<p>Whether to calculate a Macro graph (ROC metric only, not applicable for binary cases)</p>
+</li>
+<li>
+<p><strong><code>eopt</code></strong> : <code>Boolean</code> </p>
+<p><em>Default = True</em></p>
+<p>Whether to calculate and display the estimated-optimal threshold
+for each metric graph. For ROC curves, the estimated-optimal threshold is the closest
+computed threshold with (fpr,tpr) values closest to (0,1). For PR curves, it is
+the closest one to (1,1) (perfect recall and precision)</p>
 </li>
 <li>
 <p><strong><code>class_names</code></strong>: <code>list</code> or <code>string</code> </p>
@@ -605,7 +627,8 @@ default. Only used if <code>ax=None</code>.</p>
 <p>String formatting of displayed AUC and threshold numbers.</p>
 </li>
 <li>
-<p><strong><code>legend</code></strong>: <code>string</code> or <code>None</code>, default = 'best'</p>
+<p><strong><code>legend</code></strong>: <code>string</code> or <code>None</code></p>
+<p><em>Default = 'best'</em></p>
 <p>A Matplotlib legend location string. See Matplotlib documentation for possible options</p>
 </li>
 <li>
@@ -622,6 +645,13 @@ default. Only used if <code>ax=None</code>.</p>
 <p><em>Default = None</em></p>
 <p>If not None, plot will be saved to the given file name.</p>
 </li>
+<li>
+<p><strong><code>force_multiclass</code></strong>: <code>Boolean</code></p>
+<p><em>Default = False</em></p>
+<p>Only applicable if <code>y_true</code> and <code>y_pred</code> have two columns. If so,
+consider the data as a multiclass data rather than binary (useful when plotting
+curves of different models one against the other)</p>
+</li>
 </ul>
 <p><strong>Returns:</strong> A dictionary, one key for each class. Each value is another dictionary,
 holding AUC and eOpT values.</p>
@@ -631,13 +661,23 @@ Consider a data-set of two data-points where the true class of the first line
 is class 0, which was predicted with a probability of 0.6, and the second line's 
 true class is 1, with predicted probability of 0.8. </p>
 <div class="codehilite"><pre><span></span><code><span class="c1"># First option: </span>
-<span class="o">&gt;&gt;</span> <span class="n">roc_graph</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y_pred</span><span class="o">=</span><span class="p">[</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span> 
+<span class="o">&gt;&gt;</span> <span class="n">metric_graph</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y_pred</span><span class="o">=</span><span class="p">[</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.8</span><span class="p">],</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;roc&#39;</span><span class="p">)</span> 
 <span class="c1"># Second option:</span>
-<span class="o">&gt;&gt;</span> <span class="n">roc_graph</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y_pred</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.8</span><span class="p">]])</span>
+<span class="o">&gt;&gt;</span> <span class="n">metric_graph</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y_pred</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.8</span><span class="p">]],</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;roc&#39;</span><span class="p">)</span>
 <span class="c1"># Both yield the same result</span>
 </code></pre></div>
 
 
+<hr />
+<h4 id="roc_graph"><code>roc_graph</code><a class="headerlink" href="#roc_graph" title="Permanent link">&para;</a></h4>
+<p><code>roc_graph(y_true, y_pred, *args, **kwargs)</code></p>
+<p>Plot a ROC graph of predictor's results (including AUC scores), where each
+row of y_true and y_pred represent a single example.</p>
+<div class="admonition warning">
+<p class="admonition-title">Note:</p>
+<p>The 'roc_graph' method is deprecated and will be removed in future versions. 
+Please use 'metric_graph(y_true, y_pred, metric='roc',...)' instead.</p>
+</div>
 <hr />
 <h4 id="random_forest_feature_importance"><code>random_forest_feature_importance</code><a class="headerlink" href="#random_forest_feature_importance" title="Permanent link">&para;</a></h4>
 <p><code>random_forest_feature_importance(forest, features, precision=4)</code></p>

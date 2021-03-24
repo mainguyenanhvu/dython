@@ -643,17 +643,20 @@ continuous features using:
 <li>
 <p><strong><code>nominal_columns</code></strong> : <code>string / list / NumPy ndarray</code></p>
 <p>Names of columns of the data-set which hold categorical values. Can also be the string 'all' to state that all
-columns are categorical, 'auto' (default) to identify nominal columns automatically, or None to state none are categorical</p>
+columns are categorical, 'auto' (default) to identify nominal columns automatically, or None to state none are 
+categorical</p>
 </li>
 <li>
 <p><strong><code>mark_columns</code></strong> : <code>Boolean</code> </p>
 <p><em>Default: False</em></p>
-<p>if True, output's columns' names will have a suffix of '(nom)' or '(con)' based on there type (eda_tools or continuous), as provided by nominal_columns</p>
+<p>if True, output's columns' names will have a suffix of '(nom)' or '(con)' based on their type (nominal or 
+continuous), as provided by nominal_columns</p>
 </li>
 <li>
 <p><strong><code>theil_u</code></strong> : <code>Boolean</code> </p>
 <p><em>Default: False</em></p>
-<p>In the case of categorical-categorical feaures, use Theil's U instead of Cramer's V</p>
+<p>In the case of categorical-categorical feaures, use Theil's U instead of Cramer's V. If selected, 
+heat-map rows are the provided information: <span><span class="MathJax_Preview">U = U(row|col)</span><script type="math/tex">U = U(row|col)</script></span>. </p>
 </li>
 <li>
 <p><strong><code>plot</code></strong> : <code>Boolean</code> </p>
