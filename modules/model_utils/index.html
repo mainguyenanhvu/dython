@@ -534,6 +534,14 @@
 <p><code>metric_graph(y_true, y_pred, metric, micro=True, macro=True, eoptimal_threshold=True, class_names=None, colors=None, ax=None, figsize=None, xlim=(0.,1.), ylim=(0.,1.02), lw=2, ls='-', ms=10, fmt='.2f', title=None, filename=None, force_multiclass=False)</code></p>
 <p>Plot a metric graph of predictor's results (including AUC scores), where each
 row of y_true and y_pred represent a single example.</p>
+<p><strong>ROC:</strong> 
+Plots true-positive rate as a function of the false-positive rate of the positive label in a binary classification,
+where <span><span class="MathJax_Preview">TPR = TP / (TP + FN)</span><script type="math/tex">TPR = TP / (TP + FN)</script></span> and <span><span class="MathJax_Preview">FPR = FP / (FP + TN)</span><script type="math/tex">FPR = FP / (FP + TN)</script></span>. A naive algorithm will display a linear line going from 
+(0,0) to (1,1), therefore having an area under-curve (AUC) of 0.5.</p>
+<p><strong>Precision-Recall:</strong> 
+Plots precision as a function of recall of the positive label in a binary classification, where 
+<span><span class="MathJax_Preview">Precision = TP / (TP + FP)</span><script type="math/tex">Precision = TP / (TP + FP)</script></span> and <span><span class="MathJax_Preview">Recall = TP / (TP + FN)</span><script type="math/tex">Recall = TP / (TP + FN)</script></span>. A naive algorithm will display a horizontal linear 
+line with precision of the ratio of positive examples in the dataset.</p>
 <p>Based on <a href="http://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html">scikit-learn examples</a> (as was seen on April 2018):</p>
 <ul>
 <li>
