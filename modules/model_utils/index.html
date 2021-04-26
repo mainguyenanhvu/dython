@@ -365,6 +365,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ks_abc" class="md-nav__link">
+    ks_abc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#metric_graph" class="md-nav__link">
     metric_graph
   </a>
@@ -489,6 +496,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ks_abc" class="md-nav__link">
+    ks_abc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#metric_graph" class="md-nav__link">
     metric_graph
   </a>
@@ -530,6 +544,97 @@
                 
                 
                 <h1 id="model_utils">model_utils<a class="headerlink" href="#model_utils" title="Permanent link">&para;</a></h1>
+<h4 id="ks_abc"><code>ks_abc</code><a class="headerlink" href="#ks_abc" title="Permanent link">&para;</a></h4>
+<p><code>ks_abc(y_true, y_pred, ax=None, figsize=None, colors=('darkorange', 'b'), title=None, xlim=(0.,1.), ylim=(0.,1.), fmt='.2f', lw=2, legend='best', plot=True, filename=None)</code>
+Perform the Kolmogorov–Smirnov test over the positive and negative distributions of a binary classifier, and compute
+the area between curves.</p>
+<p>The KS test plots the fraction of positives and negatives predicted correctly below each threshold. It then finds
+the optimal threshold, being the one enabling the best class separation.</p>
+<p>The area between curves allows a better insight into separation. The higher the area is (1 being the maximum), the
+more the positive and negative distributions' center-of-mass are closer to 1 and 0, respectively.</p>
+<p>Based on scikit-plot's <code>plot_ks_statistic</code> method.</p>
+<ul>
+<li>
+<p><strong><code>y_true</code></strong> : array-like</p>
+<p>The true labels of the dataset</p>
+</li>
+<li>
+<p><strong><code>y_pred</code></strong> : array-like</p>
+<p>The probabilities predicted by a binary classifier</p>
+</li>
+<li>
+<p><strong><code>ax</code></strong> : matplotlib ax</p>
+<p><em>Default = None</em></p>
+<p>Matplotlib Axis on which the curves will be plotted</p>
+</li>
+<li>
+<p><strong><code>figsize</code></strong> : <code>(int,int)</code> or <code>None</code></p>
+<p><em>Default = None</em></p>
+<p>a Matplotlib figure-size tuple. If <code>None</code>, falls back to Matplotlib's
+default. Only used if <code>ax=None</code></p>
+</li>
+<li>
+<p><strong><code>colors</code></strong> : list of Matplotlib color strings </p>
+<p><em>Default = <code>('darkorange', 'b')</code></em></p>
+<p>List of colors to be used for the plotted curves</p>
+</li>
+<li>
+<p><strong><code>title</code></strong> : string or <code>None</code> </p>
+<p><em>Default = None</em></p>
+<p>Plotted graph title. If <code>None</code>, default title is used</p>
+</li>
+<li>
+<p><strong><code>xlim</code></strong> : <code>(float, float)</code></p>
+<p><em>Default = (0.,1.)</em></p>
+<p>X-axis limits.</p>
+</li>
+<li>
+<p><strong><code>ylim</code></strong> : <code>(float,float)</code></p>
+<p><em>Default = (0.,1.)</em></p>
+<p>Y-axis limits.</p>
+</li>
+<li>
+<p><strong><code>fmt</code></strong> : <code>string</code></p>
+<p><em>Default = '.2f'</em></p>
+<p>String formatting of displayed numbers.</p>
+</li>
+<li>
+<p><strong><code>lw</code></strong> : <code>int</code></p>
+<p><em>Default = 2</em></p>
+<p>Line-width.</p>
+</li>
+<li>
+<p><strong><code>legend</code></strong>: <code>string</code> or <code>None</code></p>
+<p><em>Default = 'best'</em></p>
+<p>A Matplotlib legend location string. See Matplotlib documentation for possible options</p>
+</li>
+<li>
+<p><strong><code>plot</code></strong>: <code>Boolean</code>, default = True</p>
+<p>Plot the KS curves</p>
+</li>
+<li>
+<p><strong><code>filename</code></strong>: <code>string</code> or <code>None</code></p>
+<p><em>Default = None</em></p>
+<p>If not None, plot will be saved to the given file name.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong> A dictionary of the following keys:</p>
+<ul>
+<li>
+<p><code>abc</code>: area between curves </p>
+</li>
+<li>
+<p><code>ks_stat</code>: computed statistic of the KS test</p>
+</li>
+<li>
+<p><code>eopt</code>: estimated optimal threshold</p>
+</li>
+<li>
+<p><code>ax</code>: the ax used to plot the curves</p>
+</li>
+</ul>
+<p><strong>Example:</strong> See <a href="../../getting_started/examples/">examples</a>.</p>
+<hr />
 <h4 id="metric_graph"><code>metric_graph</code><a class="headerlink" href="#metric_graph" title="Permanent link">&para;</a></h4>
 <p><code>metric_graph(y_true, y_pred, metric, micro=True, macro=True, eoptimal_threshold=True, class_names=None, colors=None, ax=None, figsize=None, xlim=(0.,1.), ylim=(0.,1.02), lw=2, ls='-', ms=10, fmt='.2f', title=None, filename=None, force_multiclass=False)</code></p>
 <p>Plot a metric graph of predictor's results (including AUC scores), where each

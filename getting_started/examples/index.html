@@ -313,6 +313,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ks_abc_example" class="md-nav__link">
+    ks_abc_example()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pr_graph_example" class="md-nav__link">
     pr_graph_example()
   </a>
@@ -517,6 +524,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ks_abc_example" class="md-nav__link">
+    ks_abc_example()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pr_graph_example" class="md-nav__link">
     pr_graph_example()
   </a>
@@ -608,6 +622,31 @@ All features of this dataset are categorical. This example will use Theil's U.</
 
 <p><strong>Output:</strong></p>
 <p><img alt="associations_mushrooms_example" src="../../images/associations_mushrooms_example.png" /></p>
+<hr />
+<h4 id="ks_abc_example"><code>ks_abc_example()</code><a class="headerlink" href="#ks_abc_example" title="Permanent link">&para;</a></h4>
+<p>An example of KS Area Between Curve of a simple binary classifier trained over the Breast Cancer dataset.</p>
+<p><strong>Example code:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">dython.model_utils</span> <span class="kn">import</span> <span class="n">ks_abc</span>
+
+<span class="c1"># Load and split data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_breast_cancer</span><span class="p">()</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Train model and predict</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Perform KS test and compute area between curves</span>
+<span class="n">ks_abc</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+
+
+<p><strong>Output:</strong></p>
+<p><img alt="ks_example" src="../../images/ks_example.png" /></p>
 <hr />
 <h4 id="pr_graph_example"><code>pr_graph_example()</code><a class="headerlink" href="#pr_graph_example" title="Permanent link">&para;</a></h4>
 <p>Plot an example Precision-Recall graph of an SVM model predictions over the Iris dataset.</p>
