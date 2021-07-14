@@ -379,13 +379,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#roc_graph" class="md-nav__link">
-    roc_graph
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#random_forest_feature_importance" class="md-nav__link">
     random_forest_feature_importance
   </a>
@@ -463,13 +456,6 @@
         <li class="md-nav__item">
   <a href="#metric_graph" class="md-nav__link">
     metric_graph
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#roc_graph" class="md-nav__link">
-    roc_graph
   </a>
   
 </li>
@@ -739,16 +725,6 @@ true class is 1, with predicted probability of 0.8. </p>
 </code></pre></div>
 
 
-<hr />
-<h4 id="roc_graph"><code>roc_graph</code><a class="headerlink" href="#roc_graph" title="Permanent link">&para;</a></h4>
-<p><code>roc_graph(y_true, y_pred, *args, **kwargs)</code></p>
-<p>Plot a ROC graph of predictor's results (including AUC scores), where each
-row of y_true and y_pred represent a single example.</p>
-<div class="admonition warning">
-<p class="admonition-title">Note:</p>
-<p>The <code>roc_graph</code> method is deprecated and will be removed in future versions. 
-Please use <code>metric_graph(y_true, y_pred, metric='roc',...)</code> instead.</p>
-</div>
 <hr />
 <h4 id="random_forest_feature_importance"><code>random_forest_feature_importance</code><a class="headerlink" href="#random_forest_feature_importance" title="Permanent link">&para;</a></h4>
 <p><code>random_forest_feature_importance(forest, features, precision=4)</code></p>

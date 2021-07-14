@@ -587,7 +587,7 @@
                 
                 <h1 id="nominal">nominal<a class="headerlink" href="#nominal" title="Permanent link">&para;</a></h1>
 <h4 id="associations"><code>associations</code><a class="headerlink" href="#associations" title="Permanent link">&para;</a></h4>
-<p><code>associations(dataset, nominal_columns='auto', mark_columns=False, theil_u=False, plot=True, clustering=False, bias_correction=True, nan_strategy=_REPLACE, nan_replace_value=_DEFAULT_REPLACE_VALUE, ax=None, figsize=None, annot=True, fmt='.2f', cmap=None, sv_color='silver', cbar=True, vmax=1.0, vmin=None, title=None, filename=None)</code></p>
+<p><code>associations(dataset, nominal_columns='auto', numerical_columns=None, mark_columns=False, nom_nom_assoc='cramer', num_num_assoc='pearson', bias_correction=True, nan_strategy=_REPLACE, nan_replace_value=_DEFAULT_REPLACE_VALUE, ax=None, figsize=None, annot=True, fmt='.2f', cmap=None, sv_color='silver', cbar=True, vmax=1.0, vmin=None, plot=True, clustering=False, title=None, filename=None)</code></p>
 <p>Calculate the correlation/strength-of-association of features in data-set with both categorical and
 continuous features using:
  * Pearson's R for continuous-continuous cases
@@ -600,9 +600,19 @@ continuous features using:
 </li>
 <li>
 <p><strong><code>nominal_columns</code></strong> : <code>string / list / NumPy ndarray</code></p>
+<p><em>Default = 'auto'</em></p>
 <p>Names of columns of the data-set which hold categorical values. Can also be the string 'all' to state that all
 columns are categorical, 'auto' (default) to identify nominal columns automatically, or None to state none are 
-categorical</p>
+categorical. Only used if <code>numerical_columns</code> is <code>None</code>.</p>
+</li>
+<li>
+<p><strong><code>numerical_columns</code></strong> : <code>string / list / NumPy ndarray</code></p>
+<p><em>Default = None</em></p>
+<p>To be used instead of <code>nominal_columns</code>. Names of columns of the data-set 
+which hold numerical values. Can also be the string 'all' to state that 
+all columns are numerical (equivalent to <code>nominal_columns=None</code>) or
+'auto' to try to identify numerical columns (equivalent to 
+<code>nominal_columns=auto</code>). If <code>None</code>, <code>nominal_columns</code> is used.</p>
 </li>
 <li>
 <p><strong><code>mark_columns</code></strong> : <code>Boolean</code> </p>
@@ -611,26 +621,37 @@ categorical</p>
 continuous), as provided by nominal_columns</p>
 </li>
 <li>
-<p><strong><code>theil_u</code></strong> : <code>Boolean</code> </p>
-<p><em>Default: False</em></p>
-<p>In the case of categorical-categorical feaures, use Theil's U instead of Cramer's V. If selected, 
-heat-map rows are the provided information: <span><span class="MathJax_Preview">U = U(row|col)</span><script type="math/tex">U = U(row|col)</script></span>. </p>
-</li>
-<li>
-<p><strong><code>plot</code></strong> : <code>Boolean</code> </p>
-<p><em>Default: True</em></p>
-<p>Plot a heat-map of the correlation matrix. If False, heat-map will still be
-drawn, but not shown. The heat-map's <code>ax</code> is part of this function's output. </p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If you have no use of the plot at all, and only require the correlations
-DataFrame, consider using <a href="#compute_associations"><code>compute_associations</code></a> instead.</p>
+<p><strong><code>nom_nom_assoc</code></strong> : <code>string</code></p>
+<p><em>Default = 'cramer'</em></p>
+<div class="admonition info">
+<p class="admonition-title">Method signature change</p>
+<p>This replaces the <code>theil_u</code> flag which was used till version 0.6.6.</p>
 </div>
+<p>Name of nominal-nominal (categorical-categorical) association to use:</p>
+<ul>
+<li>
+<p><code>cramer</code>: Cramer's V</p>
 </li>
 <li>
-<p><strong><code>clustering</code></strong> : <code>Boolean</code> </p>
-<p><em>Default: False</em></p>
-<p>If True, the computed associations will be sorted into groups by similar correlations</p>
+<p><code>theil</code>: Theil's U. When selected, heat-map rows are the provided information (meaning: <span><span class="MathJax_Preview">U = U(row|col)</span><script type="math/tex">U = U(row|col)</script></span>)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>num_num_assoc</code></strong> : <code>string</code></p>
+<p><em>Default = 'pearson'</em></p>
+<p>Name of numerical-numerical association to use: </p>
+<ul>
+<li>
+<p><code>pearson</code>: Pearson's R</p>
+</li>
+<li>
+<p><code>spearman</code>: Spearman's R</p>
+</li>
+<li>
+<p><code>kendall</code>: Kendall's Tau</p>
+</li>
+</ul>
 </li>
 <li>
 <p><strong><code>bias_correction</code></strong> : <code>Boolean</code></p>
@@ -693,7 +714,23 @@ DataFrame, consider using <a href="#compute_associations"><code>compute_associat
 <p><em>Default = None</em></p>
 <p>Set heat-map <code>vmin</code> option. If set to <code>None</code>, <code>vmin</code> will be chosen automatically 
 between 0 and -1.0, depending on the types of associations used (-1.0 if Pearson's R 
-is used, 0 otherwise)  </p>
+is used, 0 otherwise)</p>
+</li>
+<li>
+<p><strong><code>plot</code></strong> : <code>Boolean</code> </p>
+<p><em>Default: True</em></p>
+<p>Plot a heat-map of the correlation matrix. If False, heat-map will still be
+drawn, but not shown. The heat-map's <code>ax</code> is part of this function's output. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you have no use of the plot at all, and only require the correlations
+DataFrame, consider using <a href="#compute_associations"><code>compute_associations</code></a> instead.</p>
+</div>
+</li>
+<li>
+<p><strong><code>clustering</code></strong> : <code>Boolean</code> </p>
+<p><em>Default: False</em></p>
+<p>If True, the computed associations will be sorted into groups by similar correlations</p>
 </li>
 <li>
 <p><strong><code>title</code></strong>: <code>string</code> or <code>None</code></p>
@@ -744,7 +781,7 @@ Based on <a href="https://github.com/TheLoneNut/CorrelationMatrixClustering/blob
 
 <hr />
 <h4 id="compute_associations"><code>compute_associations</code><a class="headerlink" href="#compute_associations" title="Permanent link">&para;</a></h4>
-<p><code>compute_associations(dataset, nominal_columns='auto', mark_columns=False, theil_u=False, clustering=False, bias_correction=True, nan_strategy=_REPLACE, nan_replace_value=_DEFAULT_REPLACE_VALUE)</code></p>
+<p><code>compute_associations(dataset, nominal_columns='auto', mark_columns=False, theil_u=False, bias_correction=True, nan_strategy=_REPLACE, nan_replace_value=_DEFAULT_REPLACE_VALUE, clustering=False)</code></p>
 <p>Calculate the correlation/strength-of-association of features in data-set with both categorical and
 continuous features using:
  * Pearson's R for continuous-continuous cases
@@ -762,8 +799,19 @@ it skips entirely on the drawing phase of the heat-map (See
 </li>
 <li>
 <p><strong><code>nominal_columns</code></strong> : <code>string / list / NumPy ndarray</code></p>
+<p><em>Default = 'auto'</em></p>
 <p>Names of columns of the data-set which hold categorical values. Can also be the string 'all' to state that all
-columns are categorical, 'auto' (default) to identify nominal columns automatically, or None to state none are categorical</p>
+columns are categorical, 'auto' (default) to identify nominal columns automatically, or None to state none are 
+categorical. Only used if <code>numerical_columns</code> is <code>None</code>.</p>
+</li>
+<li>
+<p><strong><code>numerical_columns</code></strong> : <code>string / list / NumPy ndarray</code></p>
+<p><em>Default = None</em></p>
+<p>To be used instead of <code>nominal_columns</code>. Names of columns of the data-set 
+which hold numerical values. Can also be the string 'all' to state that 
+all columns are numerical (equivalent to <code>nominal_columns=None</code>) or
+'auto' to try to identify numerical columns (equivalent to 
+<code>nominal_columns=auto</code>). If <code>None</code>, <code>nominal_columns</code> is used.</p>
 </li>
 <li>
 <p><strong><code>mark_columns</code></strong> : <code>Boolean</code> </p>
@@ -771,14 +819,37 @@ columns are categorical, 'auto' (default) to identify nominal columns automatica
 <p>if True, output's columns' names will have a suffix of '(nom)' or '(con)' based on there type (eda_tools or continuous), as provided by nominal_columns</p>
 </li>
 <li>
-<p><strong><code>theil_u</code></strong> : <code>Boolean</code> </p>
-<p><em>Default: False</em></p>
-<p>In the case of categorical-categorical feaures, use Theil's U instead of Cramer's V</p>
+<p><strong><code>nom_nom_assoc</code></strong> : <code>string</code></p>
+<p><em>Default = 'cramer'</em></p>
+<div class="admonition info">
+<p class="admonition-title">Method signature change</p>
+<p>This replaces the <code>theil_u</code> flag which was used till version 0.6.6.</p>
+</div>
+<p>Name of nominal-nominal (categorical-categorical) association to use:</p>
+<ul>
+<li>
+<p><code>cramer</code>: Cramer's V</p>
 </li>
 <li>
-<p><strong><code>clustering</code></strong> : <code>Boolean</code> </p>
-<p><em>Default: False</em></p>
-<p>If True, the computed associations will be sorted into groups by similar correlations</p>
+<p><code>theil</code>: Theil's U. When selected, heat-map rows are the provided information (meaning: <span><span class="MathJax_Preview">U = U(row|col)</span><script type="math/tex">U = U(row|col)</script></span>)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>num_num_assoc</code></strong> : <code>string</code></p>
+<p><em>Default = 'pearson'</em></p>
+<p>Name of numerical-numerical association to use: </p>
+<ul>
+<li>
+<p><code>pearson</code>: Pearson's R</p>
+</li>
+<li>
+<p><code>spearman</code>: Spearman's R</p>
+</li>
+<li>
+<p><code>kendall</code>: Kendall's Tau</p>
+</li>
+</ul>
 </li>
 <li>
 <p><strong><code>bias_correction</code></strong> : <code>Boolean</code></p>
@@ -795,6 +866,11 @@ columns are categorical, 'auto' (default) to identify nominal columns automatica
 <p><strong><code>nan_replace_value</code></strong> : <code>any</code> </p>
 <p><em>Default: 0.0</em></p>
 <p>The value used to replace missing values with. Only applicable when nan_strategy is set to 'replace'</p>
+</li>
+<li>
+<p><strong><code>clustering</code></strong> : <code>Boolean</code> </p>
+<p><em>Default: False</em></p>
+<p>If True, the computed associations will be sorted into groups by similar correlations</p>
 </li>
 </ul>
 <p><strong>Returns:</strong> A DataFrame of the correlation/strength-of-association between all features</p>
