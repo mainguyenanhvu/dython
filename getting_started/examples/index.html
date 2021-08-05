@@ -29,10 +29,6 @@
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ba0d045b.min.css">
         
-          
-          
-          <meta name="theme-color" content="#02a6f2">
-        
       
     
     
@@ -88,13 +84,17 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="blue">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="blue">
   
     
     <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -137,6 +137,28 @@
         </div>
       </div>
     </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
     
     
     
@@ -560,8 +582,8 @@
 <h4 id="associations_iris_example"><code>associations_iris_example()</code><a class="headerlink" href="#associations_iris_example" title="Permanent link">&para;</a></h4>
 <p>Plot an example of an associations heat-map of the Iris dataset features. 
 All features of this dataset are numerical (except for the target).</p>
-<p><strong>Example code:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<p><strong>Example code:</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">dython.nominal</span> <span class="kn">import</span> <span class="n">associations</span>
 
@@ -580,15 +602,14 @@ All features of this dataset are numerical (except for the target).</p>
 <span class="c1"># Plot features associations</span>
 <span class="n">associations</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </code></pre></div>
-
-<p><strong>Output:</strong></p>
+<strong>Output:</strong></p>
 <p><img alt="associations_iris_example" src="../../images/associations_iris_example.png" /></p>
 <hr />
 <h4 id="associations_mushrooms_example"><code>associations_mushrooms_example()</code><a class="headerlink" href="#associations_mushrooms_example" title="Permanent link">&para;</a></h4>
 <p>Plot an example of an associations heat-map of the UCI Mushrooms dataset features.
 All features of this dataset are categorical. This example will use Theil's U.</p>
-<p><strong>Example code:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<p><strong>Example code:</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">dython.nominal</span> <span class="kn">import</span> <span class="n">associations</span>
 
 <span class="c1"># Download and load data from UCI</span>
@@ -601,14 +622,13 @@ All features of this dataset are categorical. This example will use Theil's U.</
 <span class="c1"># Plot features associations</span>
 <span class="n">associations</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">nom_nom_assoc</span><span class="o">=</span><span class="s1">&#39;theil&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
 </code></pre></div>
-
-<p><strong>Output:</strong></p>
+<strong>Output:</strong></p>
 <p><img alt="associations_mushrooms_example" src="../../images/associations_mushrooms_example.png" /></p>
 <hr />
 <h4 id="ks_abc_example"><code>ks_abc_example()</code><a class="headerlink" href="#ks_abc_example" title="Permanent link">&para;</a></h4>
 <p>An example of KS Area Between Curve of a simple binary classifier trained over the Breast Cancer dataset.</p>
-<p><strong>Example code:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<p><strong>Example code:</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 <span class="kn">from</span> <span class="nn">dython.model_utils</span> <span class="kn">import</span> <span class="n">ks_abc</span>
@@ -624,15 +644,14 @@ All features of this dataset are categorical. This example will use Theil's U.</
 
 <span class="c1"># Perform KS test and compute area between curves</span>
 <span class="n">ks_abc</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
-</code></pre></div>
-
+</code></pre></div></p>
 <p><strong>Output:</strong></p>
 <p><img alt="ks_example" src="../../images/ks_example.png" /></p>
 <hr />
 <h4 id="pr_graph_example"><code>pr_graph_example()</code><a class="headerlink" href="#pr_graph_example" title="Permanent link">&para;</a></h4>
 <p>Plot an example Precision-Recall graph of an SVM model predictions over the Iris dataset.</p>
 <p><strong>Example code:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span><span class="p">,</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">label_binarize</span>
@@ -659,7 +678,6 @@ All features of this dataset are categorical. This example will use Theil's U.</
 <span class="c1"># Plot ROC graphs</span>
 <span class="n">metric_graph</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="s1">&#39;pr&#39;</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">)</span>
 </code></pre></div>
-
 <p><strong>Output:</strong></p>
 <p><img alt="pr_example" src="../../images/pr_example.png" /></p>
 <hr />
@@ -668,7 +686,7 @@ All features of this dataset are categorical. This example will use Theil's U.</
 <p>Based on <code>sklearn</code> <a href="http://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html">examples</a> 
 (as was seen on April 2018).</p>
 <p><strong>Example code:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span><span class="p">,</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">label_binarize</span>
@@ -695,7 +713,6 @@ All features of this dataset are categorical. This example will use Theil's U.</
 <span class="c1"># Plot ROC graphs</span>
 <span class="n">metric_graph</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="s1">&#39;roc&#39;</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">)</span>
 </code></pre></div>
-
 <p><strong>Output:</strong></p>
 <p><img alt="roc_example" src="../../images/roc_example.png" /></p>
 <div class="admonition warning">
@@ -708,8 +725,8 @@ example, the output graph may vary from one machine to another.</p>
 <p>Plot an example of split histogram of data from the breast-cancer dataset.</p>
 <p>While this example presents a numerical column split by a categorical one, categorical columns can also be used
 as the values, as well as numerical columns as the split criteria.</p>
-<p><strong>Example code:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<p><strong>Example code:</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">dython.data_utils</span> <span class="kn">import</span> <span class="n">split_hist</span>
 
@@ -720,8 +737,7 @@ as the values, as well as numerical columns as the split criteria.</p>
 
 <span class="c1"># Plot histogram</span>
 <span class="n">split_hist</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;mean radius&#39;</span><span class="p">,</span> <span class="n">split_by</span><span class="o">=</span><span class="s1">&#39;malignant&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
-</code></pre></div>
-
+</code></pre></div></p>
 <p><strong>Output:</strong></p>
 <p><img alt="split_hist_example" src="../../images/split_hist_example.png" /></p>
                 

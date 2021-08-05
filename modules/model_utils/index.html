@@ -29,10 +29,6 @@
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ba0d045b.min.css">
         
-          
-          
-          <meta name="theme-color" content="#02a6f2">
-        
       
     
     
@@ -88,13 +84,17 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="blue">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="blue">
   
     
     <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -137,6 +137,28 @@
         </div>
       </div>
     </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
     
     
     
@@ -742,14 +764,13 @@ holding AUC and eOpT values.</p>
 <p><strong>Binary Classification Input Example:</strong> 
 Consider a data-set of two data-points where the true class of the first line 
 is class 0, which was predicted with a probability of 0.6, and the second line's 
-true class is 1, with predicted probability of 0.8. </p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># First option: </span>
+true class is 1, with predicted probability of 0.8. 
+<div class="highlight"><pre><span></span><code><span class="c1"># First option: </span>
 <span class="o">&gt;&gt;</span> <span class="n">metric_graph</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y_pred</span><span class="o">=</span><span class="p">[</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.8</span><span class="p">],</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;roc&#39;</span><span class="p">)</span> 
 <span class="c1"># Second option:</span>
 <span class="o">&gt;&gt;</span> <span class="n">metric_graph</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y_pred</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.4</span><span class="p">],[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.8</span><span class="p">]],</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;roc&#39;</span><span class="p">)</span>
 <span class="c1"># Both yield the same result</span>
-</code></pre></div>
-
+</code></pre></div></p>
 <hr />
 <h4 id="random_forest_feature_importance"><code>random_forest_feature_importance</code><a class="headerlink" href="#random_forest_feature_importance" title="Permanent link">&para;</a></h4>
 <p><code>random_forest_feature_importance(forest, features, precision=4)</code></p>
