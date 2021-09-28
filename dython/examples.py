@@ -7,7 +7,7 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.linear_model import LogisticRegression
 
 from .data_utils import split_hist
-from .model_utils import metric_graph, roc_graph, ks_abc
+from .model_utils import metric_graph, ks_abc
 from .nominal import associations
 
 
@@ -38,7 +38,7 @@ def roc_graph_example():
     y_score = classifier.fit(X_train, y_train).predict_proba(X_test)
 
     # Plot ROC graphs
-    return roc_graph(y_test, y_score, class_names=iris.target_names)
+    return metric_graph(y_test, y_score, 'roc', class_names=iris.target_names)
 
 
 def pr_graph_example():
@@ -87,7 +87,7 @@ def associations_iris_example():
     df = pd.concat([X, y], axis=1)
 
     # Plot features associations
-    return associations(df, num_num_assoc='spearman')
+    return associations(df)
 
 
 def associations_mushrooms_example():
