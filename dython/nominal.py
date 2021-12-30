@@ -364,6 +364,8 @@ def _comp_assoc(dataset, nominal_columns, numerical_columns, mark_columns, nom_n
             corr.loc[columns[i], :] = 0.0
             continue
         for j in range(i, len(columns)):
+            column_i = dataset[columns[i]]
+            column_j = dataset[columns[j]]
             if nan_strategy == _DROP_SAMPLES:
                 temp = dataset[[columns[i],columns[j]]].dropna(axis=0)
                 column_i = temp[columns[i]]
